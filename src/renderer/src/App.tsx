@@ -1,5 +1,6 @@
 import Versions from "./components/Versions";
 import electronLogo from "./assets/electron.svg";
+import Ping from "./components/Ping";
 
 function App(): JSX.Element {
   const ipcHandle = (): void => window.electron.ipcRenderer.send("ping");
@@ -28,6 +29,7 @@ function App(): JSX.Element {
         </div>
       </div>
       <Versions></Versions>
+      <Ping></Ping>
     </>
   );
 }
