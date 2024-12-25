@@ -5,7 +5,6 @@ declare global {
     ipc: IpcHandler;
     versions: {
       node: string;
-      chrome: string;
       electron: string;
       next: string;
       react: string;

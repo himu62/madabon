@@ -23,7 +23,6 @@ export type IpcHandler = typeof handler;
 
 contextBridge.exposeInMainWorld("versions", {
   node: process.versions.node,
-  chrome: process.versions.chrome,
   electron: electronPackage.version,
   next: nextPackage.version,
   react: reactPackage.version,
