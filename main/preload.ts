@@ -1,7 +1,4 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from "electron";
-import electronPackage from "electron/package.json";
-import nextPackage from "next/package.json";
-import reactPackage from "react/package.json";
 
 const handler = {
   send(channel: string, value: unknown) {
@@ -20,10 +17,3 @@ const handler = {
 contextBridge.exposeInMainWorld("ipc", handler);
 
 export type IpcHandler = typeof handler;
-
-contextBridge.exposeInMainWorld("versions", {
-  node: process.versions.node,
-  electron: electronPackage.version,
-  next: nextPackage.version,
-  react: reactPackage.version,
-});
