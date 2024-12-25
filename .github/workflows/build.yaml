@@ -1,12 +1,18 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version"
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -15,8 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
@@ -27,8 +32,8 @@ jobs:
 
       - run: npm run build:unpack
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: |
-            dist/win-unpacked/
+      - run: zip -r madabon-${{ inputs.version }}.zip dist/win-unpacked/
+
+      - run: gh release create v${{ inputs.version }} --generate-notes madabon-${{ inputs.version }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
