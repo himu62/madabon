@@ -25,7 +25,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build:unpacked
+      - run: npm run build:unpack
 
       - uses: actions/upload-artifact@v4
         with:
