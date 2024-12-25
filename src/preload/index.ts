@@ -1,5 +1,6 @@
 import { contextBridge } from "electron";
 import { electronAPI } from "@electron-toolkit/preload";
+import reactPackage from "react/package.json";
 
 // Custom APIs for renderer
 const api = {};
@@ -13,7 +14,7 @@ if (process.contextIsolated) {
     contextBridge.exposeInMainWorld("api", api);
 
     contextBridge.exposeInMainWorld("packageVersions", {
-      react: (await import("react/package.json")).version,
+      react: reactPackage.version,
     });
   } catch (error) {
     console.error(error);
