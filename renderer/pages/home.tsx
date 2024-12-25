@@ -21,6 +21,9 @@ export default function HomePage() {
         <p>
           ⚡ Electron + Next.js ⚡ -<Link href="/next">Go to next page</Link>
         </p>
+        <p>
+          <Link href="/versions">Go to versions page</Link>
+        </p>
         <Image src="/images/logo.png" alt="Logo image" width={256} height={256} />
       </div>
       <div>
