@@ -32,7 +32,7 @@ jobs:
 
       - run: npm run build:unpack
 
-      - run: zip -r madabon-${{ inputs.version }}.zip dist/win-unpacked/
+      - run: Compress-Archive -Path dist/win-unpacked/* -Destination madabon-${{ inputs.version }}.zip
 
       - run: gh release create v${{ inputs.version }} --generate-notes madabon-${{ inputs.version }}.zip
         env:
