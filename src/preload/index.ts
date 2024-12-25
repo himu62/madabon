@@ -13,14 +13,14 @@ if (process.contextIsolated) {
     contextBridge.exposeInMainWorld("api", api);
 
     contextBridge.exposeInMainWorld("packageVersions", {
-      react: require("react/package.json").version,
+      react: (await import("react/package.json")).version,
     });
   } catch (error) {
     console.error(error);
   }
 } else {
-  // @ts-ignore (define in dts)
+  // @ts-expect-error (define in dts)
   window.electron = electronAPI;
-  // @ts-ignore (define in dts)
+  // @ts-expect-error (define in dts)
   window.api = api;
 }
