@@ -1,6 +1,6 @@
 # madabon
 
-An Electron application with React and TypeScript
+Discord Manipulation Tool for Game Masters of Murder-Mystery/TRPG
 
 ## Recommended IDE Setup
 
