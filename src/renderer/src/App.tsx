@@ -1,36 +1,18 @@
-import Versions from "./components/Versions";
-import electronLogo from "./assets/electron.svg";
-import Ping from "./components/Ping";
+import Layout from "./Layout";
+import Home from "./pages/Home";
+import Versions from "./pages/Versions";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App(): React.ReactElement {
-  const ipcHandle = (): void => window.electron.ipcRenderer.send("ping");
-
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="creator">Powered by electron-vite</div>
-      <div className="text">
-        Build an Electron app with <span className="react">React</span>
-        &nbsp;and <span className="ts">TypeScript</span>
-      </div>
-      <p className="tip">
-        Please try pressing <code>F12</code> to open the devTool
-      </p>
-      <div className="actions">
-        <div className="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
-          </a>
-        </div>
-        <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
-            Send IPC
-          </a>
-        </div>
-      </div>
-      <Versions />
-      <Ping />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/versions" element={<Versions />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
