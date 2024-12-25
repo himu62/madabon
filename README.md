@@ -1,40 +1,34 @@
-<p align="center"><img src="https://i.imgur.com/NZfsD1p.png"></p>
+# madabon
 
-Discord Manipulation Tool for Game Masters of Murder-Mystery/TTRPGs
+Discord Manipulation Tool for Game Masters of Murder-Mystery/TRPG
 
-## Usage
+## Recommended IDE Setup
 
-### Create an App
+- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-```
-# with npx
-$ npx create-nextron-app my-app --example basic-lang-typescript
+## Project Setup
 
-# with yarn
-$ yarn create nextron-app my-app --example basic-lang-typescript
+### Install
 
-# with pnpm
-$ pnpm dlx create-nextron-app my-app --example basic-lang-typescript
+```bash
+$ npm install
 ```
 
-### Install Dependencies
+### Development
 
-```
-$ cd my-app
-
-# using yarn or npm
-$ yarn (or `npm install`)
-
-# using pnpm
-$ pnpm install --shamefully-hoist
+```bash
+$ npm run dev
 ```
 
-### Use it
+### Build
 
-```
-# development mode
-$ yarn dev (or `npm run dev` or `pnpm run dev`)
+```bash
+# For windows
+$ npm run build:win
 
-# production build
-$ yarn build (or `npm run build` or `pnpm run build`)
+# For macOS
+$ npm run build:mac
+
+# For Linux
+$ npm run build:linux
 ```
