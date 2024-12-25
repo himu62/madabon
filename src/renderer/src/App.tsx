@@ -2,7 +2,7 @@ import Versions from "./components/Versions";
 import electronLogo from "./assets/electron.svg";
 import Ping from "./components/Ping";
 
-function App(): JSX.Element {
+function App(): React.ReactElement {
   const ipcHandle = (): void => window.electron.ipcRenderer.send("ping");
 
   return (
@@ -28,8 +28,8 @@ function App(): JSX.Element {
           </a>
         </div>
       </div>
-      <Versions></Versions>
-      <Ping></Ping>
+      <Versions />
+      <Ping />
     </>
   );
 }

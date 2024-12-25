@@ -15,9 +15,6 @@ function createWindow(): void {
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
       sandbox: false,
-      additionalArguments: [
-        "--content-security-policy=default-src 'self'; connect-src 'self' http://localhost:3001;",
-      ],
     },
   });
 

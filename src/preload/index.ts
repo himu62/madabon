@@ -11,6 +11,10 @@ if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld("electron", electronAPI);
     contextBridge.exposeInMainWorld("api", api);
+
+    contextBridge.exposeInMainWorld("packageVersions", {
+      react: require("react/package.json").version,
+    });
   } catch (error) {
     console.error(error);
   }
