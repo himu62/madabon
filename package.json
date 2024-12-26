@@ -1,0 +1,12 @@
+{
+  "name": "madabon",
+  "version": "0.0.1",
+  "description": "Discord Manipulation Tool for Game Masters of Murder-Mystery/TTRPGs",
+  "main": "app/api/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "himu62",
+  "license": "MIT"
+}
