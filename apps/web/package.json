@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "web",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -8,20 +8,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": ""
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
-    "next": "^15.1.0",
+    "next": "^15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20",
-    "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.0",
-    "typescript": "5.5.4"
+    "@types/node": "^20.17.10",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
   }
 }
