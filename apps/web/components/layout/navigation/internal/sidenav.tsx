@@ -3,7 +3,6 @@ import {
   Flex,
   Icon,
   IconButton,
-  Image,
   useBreakpoint,
   VStack,
 } from "@chakra-ui/react";

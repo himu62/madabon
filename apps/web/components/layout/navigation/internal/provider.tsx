@@ -2,7 +2,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import { createContext, useContext } from "react";
 
 const SideNavContext = createContext<ReturnType<typeof useDisclosure> | null>(
-  null
+  null,
 );
 
 export const useSideNav = () => {

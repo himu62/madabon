@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Grid, GridItem, IconButton } from "@chakra-ui/react";
+import { Grid, GridItem, IconButton } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import { SideNavProvider, useSideNav } from "./internal/provider";
 import SideNav from "./internal/sidenav";

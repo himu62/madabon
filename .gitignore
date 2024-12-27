@@ -2,3 +2,5 @@ node_modules/
 .turbo/
 .next/
 dist/
+
+*.tsbuildinfo

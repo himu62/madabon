@@ -42,7 +42,7 @@ const SideNavItems = ({ items }: Props) => {
     <nav>
       <List.Root spaceY={3}>
         {items.map((item, index) =>
-          open ? maximize(item, index) : minimize(item, index)
+          open ? maximize(item, index) : minimize(item, index),
         )}
       </List.Root>
     </nav>
