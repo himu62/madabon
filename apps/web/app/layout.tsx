@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ColorModeButton } from "../components/ui/color-mode";
-import { Provider } from "../components/ui/provider";
-import {
-  DrawerRoot,
-  DrawerBackdrop,
-  DrawerTrigger,
-  DrawerContent,
-} from "../components/ui/drawer";
+import { Provider } from "@/components/ui/provider";
+import SideNavLayout from "@/components/layout/navigation";
 
 export const metadata: Metadata = {
   title: "madabon",
@@ -24,13 +18,7 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body>
         <Provider>
-          <DrawerRoot>
-            <DrawerBackdrop />
-            <DrawerTrigger />
-            <DrawerContent>this is drawer</DrawerContent>
-          </DrawerRoot>
-          <ColorModeButton />
-          <main>{children}</main>
+          <SideNavLayout>{children}</SideNavLayout>
         </Provider>
       </body>
     </html>
