@@ -16,7 +16,7 @@ const SideNavContainer = ({ children }: Props) => {
     <Grid templateAreas={`"sidebar main"`} templateColumns="auto 1fr">
       <GridItem area="sidebar" as="aside" width="full">
         <SideNav />
-        <IconButton aria-label="menu" hideFrom="md" onClick={onOpen}>
+        <IconButton aria-label="menu" hideFrom="sm" onClick={onOpen}>
           <FiMenu />
         </IconButton>
       </GridItem>

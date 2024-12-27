@@ -1,4 +1,12 @@
-import { Box, Flex, IconButton, useBreakpoint, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Icon,
+  IconButton,
+  Image,
+  useBreakpoint,
+  VStack,
+} from "@chakra-ui/react";
 import React from "react";
 import contents from "./contents";
 import SideNavItems from "./items";
@@ -15,29 +23,39 @@ import {
 } from "@/components/ui/drawer";
 import { CloseButton } from "@/components/ui/close-button";
 import { ColorModeButton, useColorModeValue } from "@/components/ui/color-mode";
+import { Tooltip } from "@/components/ui/tooltip";
+import IconLogo from "@/components/icon/logo";
 
 const SideNav = () => {
   const { open, onOpen, onClose } = useSideNav();
-  const isSmall = useBreakpoint({ breakpoints: ["sm"] }) === "base";
-  console.log(isSmall);
+  const isSmall = useBreakpoint({ breakpoints: ["sm"] }) !== "sm";
+  const bgColor = useColorModeValue("gray.200", "gray.800");
 
   return (
     <React.Fragment>
-      <VStack
-        hideBelow="md"
-        p="2"
-        height="100vh"
-        bg={useColorModeValue("gray.200", "gray.800")}
-      >
+      <VStack hideBelow="sm" p="2" height="100vh" bg={bgColor}>
+        <Icon fontSize="1em">
+          <IconLogo />
+        </Icon>
         <Flex justify="flex-end" width="full">
           {open ? (
-            <IconButton onClick={onClose}>
-              <FaArrowLeft />
-            </IconButton>
+            <Tooltip
+              content="メニューをしまう"
+              positioning={{ placement: "right" }}
+            >
+              <IconButton onClick={onClose}>
+                <FaArrowLeft />
+              </IconButton>
+            </Tooltip>
           ) : (
-            <IconButton onClick={onOpen}>
-              <FaArrowRight />
-            </IconButton>
+            <Tooltip
+              content="メニューを広げる"
+              positioning={{ placement: "right" }}
+            >
+              <IconButton onClick={onOpen}>
+                <FaArrowRight />
+              </IconButton>
+            </Tooltip>
           )}
         </Flex>
         <Box flex="1">
@@ -50,7 +68,7 @@ const SideNav = () => {
       <DrawerRoot open={open && isSmall} placement="start">
         <DrawerBackdrop />
         <DrawerTrigger />
-        <DrawerContent>
+        <DrawerContent bg={bgColor}>
           <DrawerHeader>
             <CloseButton onClick={onClose} />
           </DrawerHeader>
