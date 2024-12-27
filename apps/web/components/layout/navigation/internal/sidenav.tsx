@@ -64,22 +64,22 @@ const SideNav = () => {
         <Flex justify="flex-end" width="full">
           <ColorModeButton />
         </Flex>
+        <DrawerRoot open={open && isSmall} placement="start">
+          <DrawerBackdrop />
+          <DrawerTrigger />
+          <DrawerContent bg={bgColor}>
+            <DrawerHeader>
+              <CloseButton onClick={onClose} />
+            </DrawerHeader>
+            <DrawerBody>
+              <SideNavItems items={contents} />
+            </DrawerBody>
+            <DrawerFooter>
+              <ColorModeButton />
+            </DrawerFooter>
+          </DrawerContent>
+        </DrawerRoot>
       </VStack>
-      <DrawerRoot open={open && isSmall} placement="start">
-        <DrawerBackdrop />
-        <DrawerTrigger />
-        <DrawerContent bg={bgColor}>
-          <DrawerHeader>
-            <CloseButton onClick={onClose} />
-          </DrawerHeader>
-          <DrawerBody>
-            <SideNavItems items={contents} />
-          </DrawerBody>
-          <DrawerFooter>
-            <ColorModeButton />
-          </DrawerFooter>
-        </DrawerContent>
-      </DrawerRoot>
     </React.Fragment>
   );
 };
