@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "bash -c 'docker compose up'",
-    "up": "dbmate up --strict",
+    "dbmate:up": "dbmate up --strict",
     "test": "dbmate up --strict --env-file .env.test"
   },
   "dependencies": {
