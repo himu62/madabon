@@ -1,17 +1,14 @@
 import { Controller, Get, Next, Req, Res } from "@nestjs/common";
-import { AppService } from "./app.service";
 import { postgraphileMiddleware } from "./middleware/postgraphile.middleware";
 import { PostGraphileResponseNode } from "postgraphile";
 import { IncomingMessage } from "http";
 import { ServerResponse } from "http";
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
-
+@Controller("/ping")
+export class PingController {
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  ping(): string {
+    return "pong";
   }
 }
 
