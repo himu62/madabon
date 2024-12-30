@@ -1,10 +1,7 @@
 import { postgraphile, PostGraphileOptions } from "postgraphile";
 import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
-import { config, Config } from "../config";
-
-const databaseUrl = (c: Config) => {
-  return `postgres://${c.database.username}:${c.database.password}@${c.database.host}:${c.database.port}/${c.database.database}`;
-};
+import { Module } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 
 const devOptions: PostGraphileOptions = {
   subscriptions: true,
@@ -37,8 +34,21 @@ const prodOptions: PostGraphileOptions = {
   legacyRelations: "omit",
 };
 
-export const postgraphileMiddleware = postgraphile(
-  databaseUrl(config),
-  "madabon",
-  process.env.NODE_ENV === "production" ? prodOptions : devOptions,
-);
+@Module({})
+export class PostGraphileModule {
+  static createPostGraphile(configService: ConfigService) {
+    const connectionSettings = {
+      host: configService.getOrThrow<string>("DATABASE_HOST"),
+      port: configService.getOrThrow<number>("DATABASE_PORT"),
+      database: configService.getOrThrow<string>("DATABASE_NAME"),
+      user: configService.getOrThrow<string>("DATABASE_USER"),
+      password: configService.getOrThrow<string>("DATABASE_PASSWORD"),
+    };
+    const options =
+      configService.get<string>("NODE_ENV") === "production"
+        ? prodOptions
+        : devOptions;
+
+    return postgraphile(connectionSettings, "madabon", options);
+  }
+}
