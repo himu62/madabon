@@ -11,7 +11,8 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "check-updates": "npm-check-updates -t minor"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

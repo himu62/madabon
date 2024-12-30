@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:e2e": "vitest run --config ./vitest.config.e2e.mts",
     "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "check-updates": "npm-check-updates -t minor"
   },
   "dependencies": {
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
