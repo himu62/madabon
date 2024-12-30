@@ -3,7 +3,7 @@ import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
 import { config, Config } from "src/config";
 
 const databaseUrl = (c: Config) => {
-  return `postgres://${c.database.username}:${c.database.password}@${c.database.host}:${c.database.port}/${c.database.database}`;
+  return `postgres://${c.database.username}:${c.database.password}@${c.database.host}:${c.database.port}/${c.database.database}?search_path=${c.database.schema}`;
 };
 
 const devOptions: PostGraphileOptions = {

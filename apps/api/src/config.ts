@@ -6,6 +6,7 @@ export interface Database {
   host: string;
   port: number;
   database: string;
+  schema: string;
   username: string;
   password: string;
 }
@@ -24,6 +25,7 @@ export const config = ((): Config => {
       host: env("DATABASE_HOST"),
       port: parseInt(env("DATABASE_PORT")),
       database: env("DATABASE_NAME"),
+      schema: env("DATABASE_SCHEMA"),
       username: env("DATABASE_USERNAME"),
       password: env("DATABASE_PASSWORD"),
     },
