@@ -3,7 +3,7 @@ import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
 import { config, Config } from "../config";
 
 const databaseUrl = (c: Config) => {
-  return `postgres://${c.database.username}:${c.database.password}@${c.database.host}:${c.database.port}/${c.database.database}?search_path=${c.database.schema}`;
+  return `postgres://${c.database.username}:${c.database.password}@${c.database.host}:${c.database.port}/${c.database.database}`;
 };
 
 const devOptions: PostGraphileOptions = {
@@ -39,6 +39,6 @@ const prodOptions: PostGraphileOptions = {
 
 export const postgraphileMiddleware = postgraphile(
   databaseUrl(config),
-  "public",
+  "madabon",
   process.env.NODE_ENV === "production" ? prodOptions : devOptions,
 );

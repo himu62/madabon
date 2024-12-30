@@ -4,7 +4,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "docker compose up"
+    "dev": "docker compose up",
+    "up": "dbmate up --strict",
+    "test": "dbmate up --strict --env-file .env.test"
   },
   "dependencies": {
     "dbmate": "^2.24.2"
